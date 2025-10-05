@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Uploaded Files</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f7f7f7;
+      margin: 0;
+      padding: 20px;
+      color: #222;
+    }
+    h2 {
+      text-align: left;
+      margin-bottom: 15px;
+      font-weight: bold;
+    }.file-list {
+      max-width: 480px;
+      margin: 0 auto;
+    }.file-item {
+      display: flex;
+      align-items: center;
+      background: white;
+      border-radius: 8px;
+      margin-bottom: 12px;
+      padding: 10px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }.play-button {
+      width: 50px;
+      height: 50px;
+      background: #ddd;
+      border-radius: 6px;
+      margin-right: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      flex-shrink: 0;
+    }.play-button:before {
+      content: "";
+      display: inline-block;
+      border-style: solid;
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent #666;
+    }.file-info {
+      flex: 1;
+    }.file-title {
+      font-weight: bold;
+      font-size: 15px;
+      margin: 0 0 6px 0;
+      line-height: 1.2;
+    }.file-meta {
+      font-size: 12px;
+      color: #777;
+      display: flex;
+      gap: 15px;
+    }.download-area {
+      margin-left: 15px;
+      text-align: right;
+      font-size: 14px;
+      color: #555;
+      cursor: pointer;
+      user-select: none;
+      text-decoration: none;
+    }.download-area:hover {
+      color: green;
+      text-decoration: underline;
+    }
+  </style>
+  
+  <style>.hero-frame {
+      border: 2px solid green;
+      border-radius: 10px;
+      padding: 20px;
+      max-width: 450px;
+      margin: 20px auto;
+      background-color: #write;
+      box-shadow: 0 4px 8px rgba(0, 128, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+    
+<style>
+  #hamburger {
+    font-size: 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background: #220;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    transition: background 0.3s ease;
+  }
+  #hamburger:hover {
+    background: #555;
+  }.menu a {
+    font-size: 20px;
+    padding: 12px 25px;
+    display: block;
+    color: #222;
+    text-decoration: none;
+  }.menu a:hover {
+    background-color: #eee;
+  }
+  #menu {
+    display: none;
+    background: #black;
+    border-radius: 8px;
+    width: 200px;
+    margin-top: 10px;
+  }
+</style>
+
+
+<button id="hamburger">&#9776;</button>
+
+<div class="menu" id="menu">
+  <a href="index.html">
+      <div class="menu-item">HOME</div>
+ </a>
+  <a href="#audios">
+<style>.menu-item {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    padding: 8px 12px;
+    user-select: none;
+  }.submenu {
+    display: none;
+    background: #222;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    
+  }.arrow {
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    font-weight: bold;
+  }.arrow.open {
+    transform: rotate(180deg);
+  }
+  
+}
+}  
+</style>
+
+<div class="menu-item" id="audios-menu">
+  AUDIOS   <span class="arrow" id="audios-arrow">&#9660;</span>
+</div>
+<div class="submenu" id="audios-submenu">
+  <a href="#darussa">DARUSSA  </a>
+  <div><a href="#darussa">MUHADARORI</a>
+  </div>
+  <div><a href="#darussa">FATAWOYI</a></div>
+</div>
+
+<script>
+  const audiosMenu = document.getElementById('audios-menu');
+  const audiosSubmenu = document.getElementById('audios-submenu');
+  const audiosArrow = document.getElementById('audios-arrow');
+
+  audiosMenu.addEventListener('click', () => {
+    const isOpen = audiosSubmenu.style.display === 'block';
+    audiosSubmenu.style.display = isOpen? 'none': 'block';
+    audiosArrow.classList.toggle('open',!isOpen);
+  });
+</script>
+ 
+  <a href="#videos"><style>.menu-item {
+    position: relative;
+    cursor: pointer;
+    color: white;
+    padding: 8px 12px;
+    user-select: none;
+  }.submenu {
+    display: none;
+    background: #222;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    text-align: center;
+    
+  }.arrow {
+    margin-left: 6px;
+    transition: transform 0.3s ease;
+    font-weight: bold;
+  }.arrow.open {
+    transform: rotate(180deg);
+  }
+  
+}
+}  
+</style>
+
+<div class="menu-item" id="videos-menu">
+  VIDEOS <span class="arrow" id="videos-arrow">&#9660;</span>
+</div>
+<div class="submenu" id="videos-submenu">
+  <a href="#darussa">SHORT VIDEO</a>
+  <div><a href="#darussa">FULL VIDEOS</a></div>
+</div>
+
+<script>
+  const videosMenu = document.getElementById('videos-menu');
+  const videosSubmenu = document.getElementById('videos-submenu');
+  const videosArrow = document.getElementById('videos-arrow');
+
+  videosMenu.addEventListener('click', () => {
+    const isOpen = videosSubmenu.style.display === 'block';
+    videosSubmenu.style.display = isOpen? 'none': 'block';
+    videosArrow.classList.toggle('open',!isOpen);
+  });
+</script></a>
+  <a href="#contact">
+      <div class="menu-item">CONTACT US</div>
+      </a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const menu = document.getElementById('menu');
+  hamburger.addEventListener('click', () => {
+    menu.style.display = menu.style.display === 'block'? 'none': 'block';
+  });
+</script> 
+  
+  </div>
+  
+  
+  <footer style="background:Aliyu; color:black; text-align:center; padding:10px 5;">
+  <div class="social" style="font-size: 40px;">
+    <a href="https://chat.whatsapp.com/IRiMG2IOZcQ14ufi0gRwJY?mode=ems_copy_c" style="color:#25D366; margin: 0 15px;" title="WhatsApp" target="_blank">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61578686623477" style="color:#1877F2; margin: 0 15px;" title="Facebook" target="_blank">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="https://youtube.com/@zaurensheikhalkasimumarabu7836?si=_IFZvMi_XvcRoC1U" style="color:#FF0000; margin: 0 15px;" title="YouTube" target="_blank">
+      <i class="fab fa-youtube"></i>
+    </a>
+    <a href="https://t.me/Alhadyunnabawysheikhalkasim" style="color:#0088cc; margin: 0 15px;" title="Telegram" target="_blank">
+      <i class="fab fa-telegram-plane"></i>
+    </a>
+  </div>
+</footer>
+
+    <style>.menu { display: none; background: #333; color: white; position: absolute; top: 50px; right: 10px; width: 150px; }.menu a { display: block; padding: 10px; color: white; text-decoration: none; }.menu a:hover { background: #555; }
+</style>
+
+
+
+  <cript>
+  
+ <div class="search-bar">
+  <input type="search" placeholder="Search Files" />
+  <button class="search-btn">Search</button>
+</div>
+
+<style>.search-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  input[type="search"] {
+    width: 60%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  button.search-btn {
+    padding: 9px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+
+
+
+  <h2>USULUS SUNNAH LIBNI ABI ZAMANEEN FILES</h2>
+  <div class="file-list">
+   
+   
+    <div class="file-item">
+      <div class="play-button" 
+      title="Play"></div>
+      <div class="file-info">
+        <p class="file-title">(001) USULUS SUNNAH</p>
+        <div class="file-meta">
+          <span>58:55</span>
+        </div>
+      </div>
+      <a href="#" class="download-area" download>Download</a>
+    </div>
+  
+  
+  <div class="file-item">
+      <div class="play-button" 
+      title="Play"></div>
+      <div class="file-info">
+        <p class="file-title">(002) USULUS SUNNAH</p>
+        <div class="file-meta">
+          <span>58:55</span>
+        </div>
+      </div>
+      <a href="#" class="download-area" download>Download</a>
+    </div>
+  
+  
+    <div class="file-item">
+      <div class="play-button" 
+      title="Play"></div>
+      <div class="file-info">
+        <p class="file-title">(003) USULUS SUNNAH</p>
+        <div class="file-meta">
+          <span>58:55</span>
+        </div>
+      </div>
+      <a href="#" class="download-area" download>Download</a>
+    </div>
+    
+    <!-- Repeat similarly for other files -->
+  </div>
+  
+  
+  
+    
+
+
+<h1 style="text-align: center; font-size: 16px;color:#FF0000;"> © ABU SHUBAIL 2025 </h1>
+
+    <!-- Add this in your <head> to load Font Awesome icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  </div>
+  
+</body>
+</html>
